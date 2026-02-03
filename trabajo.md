@@ -88,6 +88,7 @@ Además, la incorporación de un **sistema NAS** se considera un elemento clave 
 <br>
 <br>
 <br>
+
 ![banner](banners/1-2.png)
 
 ## Estudio previo / Análisis de la situación actual
@@ -899,5 +900,6 @@ El laboratorio desarrollado constituye una base sólida para seguir aprendiendo 
 Este proyecto no se limita a demostrar lo que ya se sabe hacer, sino que refleja una actitud crítica y responsable frente a la tecnología, entendiendo que la seguridad y la estabilidad son tan importantes como la funcionalidad.
 
 ---
+
 
 
