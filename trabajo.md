@@ -40,7 +40,54 @@ Además, la incorporación de un **sistema NAS** se considera un elemento clave 
 <br>
 <br>
 <br>
+## Índice
 
+1. [Introducción](#introducción)
+2. [Objetivos del proyecto](#objetivos-del-proyecto)
+
+3. [Estudio previo / Análisis de la situación actual](#estudio-previo--análisis-de-la-situación-actual)
+
+4. [Análisis de la problemática y las necesidades](#análisis-de-la-problemática-y-las-necesidades)
+
+6. [Alcance y viabilidad del proyecto](#6-alcance-y-viabilidad-del-proyecto)
+   - [6.1 Alcance del proyecto](#61-alcance-del-proyecto)
+   - [6.2 Viabilidad del proyecto](#62-viabilidad-del-proyecto)
+
+7. [Arquitectura y diseño de la solución](#7-arquitectura-y-diseño-de-la-solución)
+   - [7.1 Visión general](#71-visión-general)
+   - [7.2 Máquina principal](#72-máquina-principal)
+   - [7.3 Máquina NAS](#73-máquina-nas)
+   - [7.4 Máquina IDS](#74-máquina-ids)
+   - [7.5 Diseño de red y relaciones entre sistemas](#75-diseño-de-red-y-relaciones-entre-sistemas)
+   - [7.6 Justificación del diseño](#76-justificación-del-diseño)
+
+8. [Planificación y fases del proyecto](#8-planificación-y-fases-del-proyecto)
+   - [8.1 Consideraciones finales sobre la planificación](#81-consideraciones-finales-sobre-la-planificación)
+
+9. [Implantación del proyecto](#9-implantación-del-proyecto)
+   - [9.1 Implantación de la máquina principal](#91-implantación-de-la-máquina-principal)
+     - [9.1.1 Instalación de Windows](#911-instalación-de-windows)
+     - [9.1.2 Instalación de Ubuntu](#912-instalación-de-ubuntu)
+     - [9.1.3 Instalación de Proxmox](#913-instalación-de-proxmox)
+   - [9.2 Implantación del entorno de virtualización](#92-implantación-del-entorno-de-virtualización)
+   - [9.3 Implantación del sistema NAS](#93-implantación-del-sistema-nas)
+     - [9.3.1 Configuración básica](#931-configuración-básica)
+     - [9.3.2 Integración controlada](#932-integración-controlada)
+   - [9.4 Implantación del sistema IDS](#94-implantación-del-sistema-ids)
+   - [9.5 Integración y validación del conjunto](#95-integración-y-validación-del-conjunto)
+   - [9.6 Documentación del proceso](#96-documentación-del-proceso)
+
+10. [Recursos y presupuesto](#10-recursos-y-presupuesto)
+
+11. [Seguridad, legalidad y prevención de riesgos](#11-seguridad-legalidad-y-prevención-de-riesgos)
+
+12. [Plan de calidad y pruebas](#12-plan-de-calidad-y-pruebas)
+
+13. [Resultados, conclusiones y mejoras futuras](#13-resultados-conclusiones-y-mejoras-futuras)
+
+<br>
+<br>
+<br>
 ![banner](banners/1-2.png)
 
 ## Estudio previo / Análisis de la situación actual
@@ -852,4 +899,5 @@ El laboratorio desarrollado constituye una base sólida para seguir aprendiendo 
 Este proyecto no se limita a demostrar lo que ya se sabe hacer, sino que refleja una actitud crítica y responsable frente a la tecnología, entendiendo que la seguridad y la estabilidad son tan importantes como la funcionalidad.
 
 ---
+
 
