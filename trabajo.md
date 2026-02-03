@@ -45,9 +45,10 @@ Además, la incorporación de un **sistema NAS** se considera un elemento clave 
 1. [Introducción](#introducción)
 2. [Objetivos del proyecto](#objetivos-del-proyecto)
 
-3. [Estudio previo / Análisis de la situación actual](#estudio-previo--análisis-de-la-situación-actual)
+3. [Estudio previo](#estudio-previo--análisis-de-la-situación-actual)
+4. [Análisis de la situación actual](#estudio-previo--análisis-de-la-situación-actual)
 
-4. [Análisis de la problemática y las necesidades](#análisis-de-la-problemática-y-las-necesidades)
+5. [Análisis de la problemática y las necesidades](#análisis-de-la-problemática-y-las-necesidades)
 
 6. [Alcance y viabilidad del proyecto](#6-alcance-y-viabilidad-del-proyecto)
    - [6.1 Alcance del proyecto](#61-alcance-del-proyecto)
@@ -900,6 +901,7 @@ El laboratorio desarrollado constituye una base sólida para seguir aprendiendo 
 Este proyecto no se limita a demostrar lo que ya se sabe hacer, sino que refleja una actitud crítica y responsable frente a la tecnología, entendiendo que la seguridad y la estabilidad son tan importantes como la funcionalidad.
 
 ---
+
 
 
 
