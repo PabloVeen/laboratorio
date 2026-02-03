@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>trabajo.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+/* =========================
+   FORMATO DOCUMENTO A4 WEB
+   ========================= */
+
+/* Contenedor lógico del documento */
+body {
+    max-width: 850px;          /* ancho tipo A4 */
+    margin: 0 auto;
+    padding: 40px 50px;
+    background-color: #ffffff;
+}
+
+/* La portada mantiene ancho completo del documento */
+img[src*="portada"] {
+    max-width: 100%;
+    margin: 0 auto 50px auto;
+    display: block;
+}
+
+/* Banners entre secciones más contenidos */
+img[src^="banners/"] {
+    max-width: 75%;
+    display: block;
+    margin: 40px auto;
+}
+
+/* Evitar que código y tablas rompan el ancho */
+pre, table {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Separación visual más limpia */
+h1, h2, h3 {
+    margin-top: 50px;
+}
+
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p><img src="images/portada.png" alt="Portada"></p>
+<h1 id="laboratorio-de-pentesting">Laboratorio de Pentesting</h1>
+<p><strong>Proyecto Intermodular</strong></p>
+<p><strong>Alumno:</strong> Pablo Veen<br>
+<strong>Curso:</strong> 2º CFGS Administración de Sistemas Informáticos en Red<br>
+<strong>Centro:</strong> IES Camp de Morvedre<br>
+<strong>Fecha:</strong> Febrero 2026</p>
+<br>
+<br>
+<h2 id="introducci%C3%B3n">Introducción</h2>
+<p>Este proyecto nace de la necesidad de contar con un entorno informático <strong>flexible, controlado y bien organizado</strong>, que permita un control total de los datos y el acceso a distintas plataformas de trabajo.</p>
+<p>Como informático, resulta fundamental disponer de <strong>diferentes sistemas operativos y herramientas</strong>, tanto en entornos Windows como Linux, correctamente estructurados y separados según su función. Esta segmentación facilita el mantenimiento, la seguridad y la estabilidad del sistema.</p>
+<p>Además, la incorporación de un <strong>sistema NAS</strong> se considera un elemento clave para la organización personal, la centralización de la información y la protección de datos valiosos, permitiendo copias de seguridad y un acceso fiable a los recursos. Todo ello da lugar a un entorno de trabajo <strong>seguro, versátil y eficiente</strong>.</p>
+<h2 id="objetivos-del-proyecto">Objetivos del proyecto</h2>
+<ul>
+<li>
+<p>Diseñar e implementar un <strong>laboratorio informático multi-sistema</strong> capaz de ejecutar entornos Windows y Linux de forma simultánea y aislada.</p>
+</li>
+<li>
+<p>Configurar y validar <strong>al menos tres sistemas operativos diferentes</strong>, asegurando su correcto funcionamiento y acceso independiente.</p>
+</li>
+<li>
+<p>Organizar las aplicaciones, servicios y entornos de trabajo mediante una <strong>estructura lógica y segmentada</strong>, facilitando su gestión y mantenimiento.</p>
+</li>
+<li>
+<p>Implementar un <strong>sistema NAS operativo</strong> para la centralización del almacenamiento, garantizando la disponibilidad, integridad y seguridad de los datos.</p>
+</li>
+<li>
+<p>Establecer <strong>mecanismos básicos de protección y control de la información</strong>, como copias de seguridad y separación de datos según su uso.</p>
+</li>
+<li>
+<p>Documentar el proceso de <strong>diseño, configuración y puesta en marcha</strong> del laboratorio, verificando que cumple los objetivos técnicos definidos.</p>
+</li>
+</ul>
+<hr>
+<br>
+<br>
+<br>
+<p><img src="banners/1-2.png" alt="banner"></p>
+<h2 id="estudio-previo--an%C3%A1lisis-de-la-situaci%C3%B3n-actual">Estudio previo / Análisis de la situación actual</h2>
+<p>En el contexto tecnológico actual, gran parte de los servicios y recursos informáticos dependen de <strong>plataformas en la nube gestionadas por grandes corporaciones</strong>. Este modelo, aunque ofrece comodidad y escalabilidad, implica una dependencia económica y técnica significativa, además de una cesión del control de los datos a terceros.</p>
+<p>Desde un punto de vista de <strong>seguridad y privacidad</strong>, esta situación genera desconfianza, ya que la información queda sujeta a políticas externas y a posibles brechas fuera del control del usuario.</p>
+<p>Ante esta realidad, se considera necesario disponer de una <strong>infraestructura propia</strong>, capaz de ejecutar servicios y aplicaciones de forma local, garantizando una mayor fiabilidad, control y seguridad de los datos. Asimismo, comprender el funcionamiento real de Internet, las comunicaciones y las amenazas actuales resulta clave para estar preparado frente a ataques y vulnerabilidades.</p>
+<p>Este proyecto surge como respuesta a la necesidad de <strong>defensa local</strong>, mediante la creación de entornos controlados donde se puedan desplegar sistemas de monitorización, <em>honeypots</em> y mecanismos de detección y respuesta ante amenazas. En un entorno cada vez más centralizado, disponer de infraestructuras propias se convierte en una medida esencial para proteger la información y reforzar la seguridad de forma independiente.</p>
+<blockquote>
+<p>Desde el punto de vista del usuario avanzado, esta dependencia limita la capacidad de personalización, experimentación y aprendizaje profundo sobre el funcionamiento real de los sistemas. Además, muchas soluciones comerciales abstraen en exceso los procesos internos, dificultando la comprensión de aspectos clave como la gestión de redes, la seguridad, el almacenamiento o la administración de servicios.</p>
+</blockquote>
+<hr>
+<br>
+<br>
+<br>
+<p><img src="banners/2-2.png" alt="banner"></p>
+<h2 id="an%C3%A1lisis-de-la-problem%C3%A1tica-y-las-necesidades">Análisis de la problemática y las necesidades</h2>
+<p>El entorno tecnológico actual presenta una <strong>alta dependencia de servicios externos</strong>, especialmente plataformas en la nube, lo que reduce el control directo sobre los datos y los sistemas. Esta situación limita la visibilidad del tráfico, dificulta la respuesta ante incidentes y condiciona la privacidad a políticas de terceros.</p>
+<pre class="hljs"><code><div><span class="hljs-section">[problematicas]</span>
+<span class="hljs-attr">dependencia_externa</span> = alta
+<span class="hljs-attr">control_sobre_datos</span> = limitado
+<span class="hljs-attr">visibilidad_trafico_red</span> = reducida
+<span class="hljs-attr">privacidad</span> = condicionada_por_terceros
+<span class="hljs-attr">respuesta_ante_incidentes</span> = reactiva
+</div></code></pre>
+<p>Estas problemáticas evidencian la <strong>falta de autonomía</strong> y la dificultad para aplicar medidas de seguridad efectivas cuando la infraestructura no es propia.</p>
+<pre class="hljs"><code><div><span class="hljs-section">[necesidades técnicas]</span>
+<span class="hljs-attr">infraestructura_local</span> = <span class="hljs-literal">true</span>
+<span class="hljs-attr">ejecucion_multisistema</span> = windows, linux
+<span class="hljs-attr">seguridad_activa</span> = necesaria
+<span class="hljs-attr">almacenamiento_centralizado</span> = <span class="hljs-literal">true</span>
+<span class="hljs-attr">control_total_datos</span> = prioritario
+</div></code></pre>
+<p>Ante esta situación, surge la necesidad de diseñar un laboratorio informático propio que permita:</p>
+<ul>
+<li>Ejecutar múltiples sistemas operativos de forma simultánea y aislada.</li>
+<li>Centralizar el almacenamiento mediante un sistema NAS seguro y bastionado.</li>
+<li>Implementar medidas básicas y avanzadas de seguridad, como copias de seguridad, control de accesos e incluso sistemas de detección de intrusiones (IDS).</li>
+<li>Disponer de un entorno flexible que pueda evolucionar y adaptarse a nuevas necesidades, incluyendo su posible exposición controlada a Internet como nube privada.</li>
+</ul>
+<p>El proyecto debe recuperar el control del entorno, permitiendo una gestión directa y flexible de los sistemas y la información a costa de conocimientos, ingenio y algo de dinero.</p>
+<hr>
+<br>
+<br>
+<br>
+<p><img src="banners/3-2.png" alt="banner"></p>
+<h2 id="6-alcance-y-viabilidad-del-proyecto">6. Alcance y viabilidad del proyecto</h2>
+<h3 id="61-alcance-del-proyecto">6.1 Alcance del proyecto</h3>
+<p>El alcance de este proyecto <strong>no se encuentra completamente definido desde el inicio</strong>, y esta indefinición no es un error, sino una decisión consciente ligada a la naturaleza experimental del laboratorio.</p>
+<p>Uno de los elementos centrales del proyecto es la incorporación de un sistema <strong>NAS</strong>. Este tipo de infraestructura resulta extremadamente útil como nube privada, permitiendo centralizar información, compartir recursos entre sistemas y facilitar copias de seguridad. Sin embargo, su exposición o apertura a Internet conlleva <strong>riesgos significativos de seguridad</strong>, especialmente si no se implementan medidas avanzadas de protección.</p>
+<p>De forma similar, la posibilidad de <strong>integrar APIs y aplicaciones externas</strong> para ampliar funcionalidades resulta muy atractiva desde el punto de vista técnico. No obstante, esta integración introduce los mismos problemas de fondo: aumento de la superficie de ataque, dependencia de servicios externos y pérdida parcial de control sobre los datos.</p>
+<p>Por este motivo, el proyecto se plantea con un <strong>alcance flexible y progresivo</strong>, en el que:</p>
+<ul>
+<li>Se prioriza inicialmente un entorno <strong>local, controlado y aislado</strong>.</li>
+<li>Las funcionalidades más expuestas (acceso remoto, servicios tipo nube, APIs externas) quedan <strong>deliberadamente abiertas a evaluación</strong>.</li>
+<li>La decisión de ampliar el alcance dependerá de los resultados obtenidos en materia de estabilidad y seguridad.</li>
+</ul>
+<p>Este enfoque permite que el laboratorio crezca de forma controlada, evitando comprometer la integridad del sistema por decisiones prematuras.</p>
+<blockquote>
+<p>En resumen, el alcance del proyecto no se define como un conjunto cerrado de funcionalidades, sino como una base sólida sobre la que experimentar, evaluar riesgos y decidir conscientemente hasta dónde avanzar.</p>
+</blockquote>
+<hr>
+<h3 id="62-viabilidad-del-proyecto">6.2 Viabilidad del proyecto</h3>
+<p>Desde el punto de vista de la <strong>viabilidad técnica</strong>, es evidente que el proyecto presenta un nivel de complejidad elevado. La combinación de múltiples sistemas operativos, virtualización, almacenamiento centralizado y conceptos de seguridad puede superar, en determinados momentos, mis conocimientos.</p>
+<p>No obstante, esta dificultad no representa un impedimento real. Al contrario, el proyecto se concibe precisamente como un <strong>reto formativo</strong>, en el que el aprendizaje continuo, la investigación autónoma y la resolución de problemas forman parte del propio proceso de desarrollo.</p>
+<p>En cuanto a la <strong>viabilidad práctica</strong>, el proyecto se apoya en:</p>
+<ul>
+<li>Uso de <strong>software libre</strong>.</li>
+<li>Hardware ya disponible o reutilizable.</li>
+<li>Implementación progresiva, evitando configuraciones irreversibles.</li>
+</ul>
+<p>Esto permite avanzar por fases, probar, equivocarse y corregir sin poner en riesgo el conjunto del sistema.</p>
+<p>Desde una perspectiva personal, la posible superación de los conocimientos actuales <strong>nunca ha sido un factor limitante</strong>, sino un incentivo. El proyecto es viable precisamente porque se asume que el aprendizaje forma parte del camino y no un requisito previo cerrado.</p>
+<blockquote>
+<p>En conclusión, el proyecto es viable tanto a nivel técnico como formativo, siempre que se mantenga un enfoque progresivo, crítico y orientado a la seguridad.</p>
+</blockquote>
+<hr>
+<br>
+<br>
+<br>
+<p><img src="banners/4-2.png" alt="banner"></p>
+<h2 id="7-arquitectura-y-dise%C3%B1o-de-la-soluci%C3%B3n">7. Arquitectura y diseño de la solución</h2>
+<h3 id="71-visi%C3%B3n-general">7.1 Visión general</h3>
+<p>La solución se diseña como un laboratorio <strong>segmentado y controlado</strong>, compuesto por <strong>tres equipos físicos</strong> con funciones diferenciadas:</p>
+<ul>
+<li><strong>Máquina principal</strong>: estación de trabajo y entorno multi-sistema (arranque por discos).</li>
+<li><strong>Máquina NAS</strong>: almacenamiento centralizado y servicios asociados.</li>
+<li><strong>Máquina IDS</strong>: monitorización y detección de intrusiones.</li>
+</ul>
+<p>Aunque los sistemas pueden conectarse entre sí cuando sea necesario, el objetivo es que cada bloque sea <strong>operativo de forma independiente</strong>, reduciendo dependencias y limitando el impacto ante fallos o incidentes.</p>
+<hr>
+<h3 id="72-m%C3%A1quina-principal">7.2 Máquina principal</h3>
+<p>La máquina principal está pensada como entorno flexible de trabajo y pruebas, con <strong>tres sistemas instalados en discos separados</strong> para garantizar aislamiento a nivel de almacenamiento y facilitar recuperación / reinstalación sin afectar al resto.</p>
+<pre class="hljs"><code><div>[ Máquina principal ]
+ ├─ Disco 1: Windows
+ ├─ Disco 2: Ubuntu
+ └─ Disco 3: Proxmox
+</div></code></pre>
+<p><strong>Idea clave:</strong> los sistemas pueden compartir recursos <em>solo si se decide explícitamente</em>, pero por defecto se mantienen separados.</p>
+<ul>
+<li><strong>Windows</strong>: entorno para compatibilidad, herramientas específicas y tareas generales.</li>
+<li><strong>Ubuntu</strong>: entorno Linux para administración, desarrollo y utilidades.</li>
+<li><strong>Proxmox</strong>: entorno de virtualización para desplegar máquinas de pruebas aisladas.</li>
+</ul>
+<p>Este planteamiento permite elegir el modo de trabajo según el objetivo del momento: estación de trabajo directa (Windows/Ubuntu) o laboratorio virtualizado (Proxmox).</p>
+<hr>
+<h3 id="73-m%C3%A1quina-nas">7.3 Máquina NAS</h3>
+<p>La máquina NAS se plantea como un nodo independiente orientado a:</p>
+<ul>
+<li>Almacenamiento centralizado (datos y recursos compartidos).</li>
+<li>Copias de seguridad (estrategia a definir en función del alcance final).</li>
+<li>Posible publicación de servicios (opcional y sujeto a evaluación por riesgo).</li>
+</ul>
+<p>El diseño asume que el NAS es útil, pero que también puede convertirse en un punto crítico si se expone de forma incorrecta. Por ello, su papel se concibe como:</p>
+<blockquote>
+<p>servicio interno por defecto, y “nube” solo si se justifica y se blinda correctamente.</p>
+</blockquote>
+<hr>
+<h3 id="74-m%C3%A1quina-ids">7.4 Máquina IDS</h3>
+<p>La máquina IDS actúa como componente de seguridad y observación del laboratorio. Su función es aportar visibilidad sobre el tráfico y los eventos relevantes, permitiendo detectar comportamientos sospechosos o anomalías.</p>
+<p>Su papel dentro del diseño es claro:</p>
+<ul>
+<li>Supervisar conexiones entre máquinas cuando estén enlazadas.</li>
+<li>Detectar intentos de acceso no autorizado o tráfico anómalo.</li>
+<li>Aportar información útil para validar decisiones (por ejemplo, si abrir el NAS al exterior es razonable o demasiado arriesgado).</li>
+</ul>
+<hr>
+<h3 id="75-dise%C3%B1o-de-red-y-relaciones-entre-sistemas">7.5 Diseño de red y relaciones entre sistemas</h3>
+<p>La arquitectura contempla que los componentes <strong>puedan enlazarse</strong>, pero no lo necesitan para funcionar. Se prioriza un enfoque de conexión “bajo demanda”:</p>
+<ul>
+<li>Conectados cuando se requiere compartir datos o probar servicios.</li>
+<li>Aislados cuando se realizan prácticas de seguridad o pruebas arriesgadas.</li>
+</ul>
+<pre class="hljs"><code><div>                (enlace opcional / controlado)
+[ Máquina principal ]  &lt;-----&gt;  [ NAS ]
+         |
+         |  (monitorización)
+         v
+       [ IDS ]
+</div></code></pre>
+<p>Este enfoque permite probar escenarios distintos:</p>
+<ul>
+<li>laboratorio cerrado y seguro</li>
+<li>laboratorio interconectado</li>
+<li>laboratorio con servicios expuestos</li>
+</ul>
+<hr>
+<h3 id="76-justificaci%C3%B3n-del-dise%C3%B1o">7.6 Justificación del diseño</h3>
+<p>La separación en tres equipos y la instalación por discos independientes responde a tres objetivos:</p>
+<ul>
+<li><strong>Aislamiento real</strong> (no solo lógico).</li>
+<li><strong>Flexibilidad</strong> para cambiar de entorno según la tarea.</li>
+<li><strong>Seguridad y control</strong>, minimizando el impacto de errores o configuraciones peligrosas.</li>
+</ul>
+<p>En conjunto, la arquitectura no busca complejidad gratuita, sino una base sólida que permita experimentar con garantías, escalando el alcance solo cuando sea razonable.</p>
+<hr>
+<br>
+<br>
+<br>
+<p><img src="banners/5-2.png" alt="banner"></p>
+<h2 id="8-planificaci%C3%B3n-y-fases-del-proyecto">8. Planificación y fases del proyecto</h2>
+<h4 id="fase-1-%E2%80%93-an%C3%A1lisis-y-preparaci%C3%B3n-del-entorno">Fase 1 – Análisis y preparación del entorno</h4>
+<p>En esta fase se realiza una revisión del hardware disponible, la planificación del uso de discos y la definición inicial de la arquitectura del laboratorio.</p>
+<p>Principales tareas:</p>
+<ul>
+<li>Análisis de los equipos disponibles.</li>
+<li>Asignación de discos a cada sistema operativo.</li>
+<li>Definición del esquema general de red.</li>
+<li>Preparación de medios de instalación y documentación base.</li>
+</ul>
+<p>Objetivo de la fase:</p>
+<blockquote>
+<p>dejar el entorno listo para comenzar las instalaciones</p>
+</blockquote>
+<hr>
+<h4 id="fase-2-%E2%80%93-instalaci%C3%B3n-de-la-m%C3%A1quina-principal">Fase 2 – Instalación de la máquina principal</h4>
+<p>Esta fase se centra en la configuración de la máquina principal, instalando los sistemas operativos en <strong>discos independientes</strong> para garantizar el aislamiento definido en la arquitectura.</p>
+<p>Principales tareas:</p>
+<ul>
+<li>Instalación de Windows en su disco dedicado.</li>
+<li>Instalación de Ubuntu en su disco dedicado.</li>
+<li>Instalación de Proxmox en su disco dedicado.</li>
+<li>Verificación del arranque y funcionamiento independiente de cada sistema.</li>
+</ul>
+<p>Objetivo de la fase:</p>
+<blockquote>
+<p>disponer de una estación multi-sistema estable y operativa.</p>
+</blockquote>
+<hr>
+<h4 id="fase-3-%E2%80%93-despliegue-del-entorno-de-virtualizaci%C3%B3n">Fase 3 – Despliegue del entorno de virtualización</h4>
+<p>Una vez validado el sistema base, se trabaja sobre Proxmox como entorno de laboratorio.</p>
+<p>Principales tareas:</p>
+<ul>
+<li>Creación de máquinas virtuales de pruebas.</li>
+<li>Configuración básica de red virtual.</li>
+<li>Ajuste de recursos y almacenamiento.</li>
+<li>Pruebas de aislamiento entre entornos virtuales.</li>
+</ul>
+<p>Objetivo de la fase:</p>
+<blockquote>
+<p>contar con un laboratorio virtual seguro y flexible para pruebas y aprendizaje.</p>
+</blockquote>
+<hr>
+<h4 id="fase-4-%E2%80%93-implementaci%C3%B3n-del-sistema-nas">Fase 4 – Implementación del sistema NAS</h4>
+<p>En esta fase se configura la máquina destinada a almacenamiento y servicios asociados.</p>
+<p>Principales tareas:</p>
+<ul>
+<li>Instalación y configuración del sistema operativo del NAS.</li>
+<li>Organización del almacenamiento y estructura de datos.</li>
+<li>Configuración de acceso desde la máquina principal (cuando sea necesario).</li>
+<li>Definición inicial de políticas de copias de seguridad.</li>
+</ul>
+<p>Objetivo de la fase:</p>
+<blockquote>
+<p>disponer de un sistema de almacenamiento funcional sin comprometer la seguridad.</p>
+</blockquote>
+<hr>
+<h4 id="fase-5-%E2%80%93-implementaci%C3%B3n-del-sistema-ids">Fase 5 – Implementación del sistema IDS</h4>
+<p>Esta fase introduce el componente de seguridad del laboratorio.</p>
+<p>Principales tareas:</p>
+<ul>
+<li>Instalación del sistema IDS.</li>
+<li>Configuración de monitorización del tráfico.</li>
+<li>Pruebas de detección en escenarios controlados.</li>
+<li>Ajuste de alertas y registro de eventos.</li>
+</ul>
+<p>Objetivo de la fase:</p>
+<blockquote>
+<p>añadir visibilidad y control sobre la actividad del laboratorio.</p>
+</blockquote>
+<hr>
+<h4 id="fase-6-%E2%80%93-integraci%C3%B3n-y-pruebas-finales">Fase 6 – Integración y pruebas finales</h4>
+<p>En la última fase se evalúa el funcionamiento conjunto de los distintos sistemas, siempre manteniendo la posibilidad de aislamiento.</p>
+<p>Principales tareas:</p>
+<ul>
+<li>Pruebas de comunicación entre sistemas.</li>
+<li>Evaluación de escenarios conectados y aislados.</li>
+<li>Verificación de estabilidad y rendimiento.</li>
+<li>Documentación final del estado del proyecto.</li>
+</ul>
+<p>Objetivo de la fase:</p>
+<blockquote>
+<p>validar la coherencia global del diseño y extraer conclusiones realistas.</p>
+</blockquote>
+<hr>
+<h3 id="81-consideraciones-finales-sobre-la-planificaci%C3%B3n">8.1 Consideraciones finales sobre la planificación</h3>
+<p>La planificación está pensada para adaptarse a la evolución real del proyecto. Algunas fases pueden ampliarse o simplificarse en función de los resultados obtenidos, manteniendo siempre una visión crítica sobre la seguridad y la estabilidad del sistema.</p>
+<p>Este enfoque permite que el proyecto avance de forma <strong>realista, formativa y controlada</strong>, priorizando la calidad del aprendizaje frente a la complejidad innecesaria.</p>
+<hr>
+<br>
+<br>
+<br>
+<p><img src="banners/6-2.png" alt="banner"></p>
+<h2 id="9-implantaci%C3%B3n-del-proyecto">9. Implantación del proyecto</h2>
+<h3 id="91-implantaci%C3%B3n-de-la-m%C3%A1quina-principal">9.1 Implantación de la máquina principal</h3>
+<p>La máquina principal se implanta como un sistema multiarranque con <strong>discos físicos independientes</strong>, lo que permite separar completamente los entornos y evitar interferencias entre sistemas operativos.</p>
+<h4 id="911-instalaci%C3%B3n-de-windows">9.1.1 Instalación de Windows</h4>
+<ul>
+<li>Selección del disco dedicado exclusivamente a Windows.</li>
+<li>Instalación limpia del sistema operativo.</li>
+<li>Configuración básica del sistema y drivers.</li>
+<li>Verificación de funcionamiento y estabilidad.</li>
+</ul>
+<p>Este sistema se mantiene aislado del resto y se utiliza únicamente cuando se requiere compatibilidad con software específico.</p>
+<hr>
+<h4 id="912-instalaci%C3%B3n-de-ubuntu">9.1.2 Instalación de Ubuntu</h4>
+<ul>
+<li>Instalación en disco independiente.</li>
+<li>Configuración del sistema base.</li>
+<li>Instalación de herramientas de administración y soporte.</li>
+<li>Verificación de conectividad y rendimiento.</li>
+</ul>
+<p>Ubuntu actúa como entorno Linux estable para tareas de gestión y apoyo técnico.</p>
+<hr>
+<h4 id="913-instalaci%C3%B3n-de-proxmox">9.1.3 Instalación de Proxmox</h4>
+<ul>
+<li>Instalación en disco dedicado.</li>
+<li>Configuración inicial del hipervisor.</li>
+<li>Definición de almacenamiento y red virtual.</li>
+<li>Acceso a la interfaz de administración.</li>
+</ul>
+<p>Una vez implantado, Proxmox se utiliza exclusivamente como entorno de laboratorio y pruebas virtualizadas.</p>
+<hr>
+<h3 id="92-implantaci%C3%B3n-del-entorno-de-virtualizaci%C3%B3n">9.2 Implantación del entorno de virtualización</h3>
+<p>Sobre Proxmox se despliegan máquinas virtuales destinadas a pruebas y aprendizaje, manteniendo siempre el principio de aislamiento.</p>
+<p>Tareas realizadas:</p>
+<ul>
+<li>Creación de máquinas virtuales Linux y de seguridad.</li>
+<li>Asignación controlada de recursos (CPU, RAM, disco).</li>
+<li>Configuración de redes internas.</li>
+<li>Pruebas de arranque y funcionamiento.</li>
+</ul>
+<p>Este entorno permite experimentar sin afectar a los sistemas instalados directamente en hardware.</p>
+<hr>
+<h3 id="93-implantaci%C3%B3n-del-sistema-nas">9.3 Implantación del sistema NAS</h3>
+<p>La máquina NAS se implanta como un nodo independiente del resto del laboratorio.</p>
+<h4 id="931-configuraci%C3%B3n-b%C3%A1sica">9.3.1 Configuración básica</h4>
+<ul>
+<li>Instalación del sistema operativo seleccionado.</li>
+<li>Configuración del almacenamiento y estructura de directorios.</li>
+<li>Definición de permisos y accesos.</li>
+</ul>
+<h4 id="932-integraci%C3%B3n-controlada">9.3.2 Integración controlada</h4>
+<ul>
+<li>Acceso desde la máquina principal solo cuando es necesario.</li>
+<li>Pruebas de transferencia y estabilidad.</li>
+<li>Evaluación de riesgos ante posibles exposiciones.</li>
+</ul>
+<p>La exposición del NAS se mantiene mínima y siempre bajo criterios de seguridad.</p>
+<hr>
+<h3 id="94-implantaci%C3%B3n-del-sistema-ids">9.4 Implantación del sistema IDS</h3>
+<p>La implantación del sistema IDS se realiza en una máquina dedicada, con el objetivo de monitorizar el tráfico generado dentro del laboratorio.</p>
+<p>Tareas realizadas:</p>
+<ul>
+<li>Instalación del sistema base.</li>
+<li>Instalación del software de detección de intrusiones.</li>
+<li>Configuración de reglas y alertas básicas.</li>
+<li>Pruebas de detección en entornos controlados.</li>
+</ul>
+<p>El IDS se utiliza como herramienta de observación y aprendizaje, no como sistema automático de bloqueo.</p>
+<hr>
+<h3 id="95-integraci%C3%B3n-y-validaci%C3%B3n-del-conjunto">9.5 Integración y validación del conjunto</h3>
+<p>Una vez implantados todos los componentes, se realizan pruebas conjuntas para validar el diseño propuesto.</p>
+<p>Pruebas realizadas:</p>
+<ul>
+<li>Conexión entre máquina principal y NAS.</li>
+<li>Monitorización de tráfico mediante el IDS.</li>
+<li>Pruebas de aislamiento y desconexión.</li>
+<li>Evaluación del comportamiento ante fallos o configuraciones erróneas.</li>
+</ul>
+<p>Estas pruebas permiten confirmar que cada sistema cumple su función sin depender de los demás.</p>
+<hr>
+<h3 id="96-documentaci%C3%B3n-del-proceso">9.6 Documentación del proceso</h3>
+<p>Durante todo el proceso de implantación se documentan:</p>
+<ul>
+<li>Decisiones técnicas relevantes.</li>
+<li>Problemas encontrados y soluciones aplicadas.</li>
+<li>Configuraciones básicas y resultados obtenidos.</li>
+</ul>
+<p>Esta documentación resulta clave tanto para la evaluación del proyecto como para futuras ampliaciones o mejoras.</p>
+<hr>
+<br>
+<br>
+<br>
+<p><img src="banners/7-2.png" alt="banner"></p>
+<h2 id="10-recursos-y-presupuesto">10. Recursos y presupuesto</h2>
+<p>El proyecto se apoya en gran medida en <strong>hardware ya disponible</strong>, pero para realizar una valoración realista se tienen en cuenta tanto los equipos existentes como los elementos que ha sido necesario adquirir o fabricar. De este modo, el presupuesto refleja el <strong>coste real del laboratorio</strong>, independientemente de si los recursos ya estaban disponibles previamente.</p>
+<hr>
+<h3 id="101-equipos-y-recursos-principales">10.1 Equipos y recursos principales</h3>
+<table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>Descripción</th>
+<th>Coste estimado (€)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Equipo principal</td>
+<td>Placa base Gigabyte A520M S2H</td>
+<td>80</td>
+</tr>
+<tr>
+<td></td>
+<td>AMD Ryzen 5 5500</td>
+<td>100</td>
+</tr>
+<tr>
+<td></td>
+<td>NVMe 500 GB</td>
+<td>100</td>
+</tr>
+<tr>
+<td></td>
+<td>GPU RTX 3060 Ti</td>
+<td>300</td>
+</tr>
+<tr>
+<td></td>
+<td>Fuente de alimentación</td>
+<td>70</td>
+</tr>
+<tr>
+<td></td>
+<td>RAM 32 GB</td>
+<td>500</td>
+</tr>
+<tr>
+<td>HDD 500 GB</td>
+<td>1 unidad</td>
+<td>100</td>
+</tr>
+<tr>
+<td><strong>Subtotal equipo principal</strong></td>
+<td></td>
+<td>** 1250€**</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="102-equipo-secundario-nas--gesti%C3%B3n">10.2 Equipo secundario (NAS / gestión)</h3>
+<table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>Descripción</th>
+<th>Coste estimado (€)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Portátil Lenovo G50-80 (modificado)</td>
+<td>General</td>
+<td>250</td>
+</tr>
+<tr>
+<td>HDD 500 GB</td>
+<td>2 unidades</td>
+<td>200</td>
+</tr>
+<tr>
+<td>HDD 1 TB</td>
+<td>1 unidad</td>
+<td>125</td>
+</tr>
+<tr>
+<td>HDD 4 TB</td>
+<td>1 unidad</td>
+<td>175</td>
+</tr>
+<tr>
+<td><strong>Subtotal equipo secundario</strong></td>
+<td></td>
+<td><strong>750 €</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="103-sistema-ids">10.3 Sistema IDS</h3>
+<table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>Descripción</th>
+<th>Coste estimado (€)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raspberry Pi 1</td>
+<td>Nodo IDS</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Pantalla para Raspberry Pi</td>
+<td>Pantalla pequeña dedicada</td>
+<td>70</td>
+</tr>
+<tr>
+<td><strong>Subtotal IDS</strong></td>
+<td></td>
+<td><strong>100 €</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="104-elementos-adicionales-y-expansi%C3%B3n">10.4 Elementos adicionales y expansión</h3>
+<table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>Descripción</th>
+<th>Coste estimado (€)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Expansion slot NVMe</td>
+<td>Tarjeta de ampliación</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Capturadora de vídeo</td>
+<td>Acceso remoto / control</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Cable encendido remoto</td>
+<td>Encendido de equipos desde portátil</td>
+<td>10</td>
+</tr>
+<tr>
+<td>switch de red</td>
+<td>Expansión de conectividad</td>
+<td>200 (opcional)</td>
+</tr>
+<tr>
+<td>Cables adicionales</td>
+<td>Alimentación, red y señal</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Material rack</td>
+<td>Madera + impresión 3D</td>
+<td>150</td>
+</tr>
+<tr>
+<td><strong>Subtotal extras</strong></td>
+<td></td>
+<td><strong>445 €</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="105-presupuesto-total-estimado">10.5 Presupuesto total estimado</h3>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Coste (€)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Equipo principal</td>
+<td>1250</td>
+</tr>
+<tr>
+<td>Equipo secundario</td>
+<td>750</td>
+</tr>
+<tr>
+<td>Sistema IDS</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Extras y expansión</td>
+<td>445</td>
+</tr>
+<tr>
+<td><strong>Total estimado del proyecto</strong></td>
+<td><strong>2.545 €</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="106-consideraciones-finales-sobre-el-presupuesto">10.6 Consideraciones finales sobre el presupuesto</h3>
+<blockquote>
+<p>Cabe destacar que el uso de hardware reutilizado, la construcción artesanal del rack y el empleo de software libre han permitido contener el gasto, sin renunciar a una arquitectura sólida y funcional. Asimismo, algunos elementos, como el switch de red, se consideran opcionales, quedando su adquisición supeditada a las necesidades finales del laboratorio.</p>
+</blockquote>
+<hr>
+<br>
+<br>
+<br>
+<p><img src="banners/8-2.png" alt="banner"></p>
+<h2 id="11-seguridad-legalidad-y-prevenci%C3%B3n-de-riesgos">11. Seguridad, legalidad y prevención de riesgos</h2>
+<h3 id="111-enfoque-general-de-seguridad">11.1 Enfoque general de seguridad</h3>
+<p>La seguridad es un aspecto transversal del proyecto y se tiene en cuenta desde el diseño de la arquitectura hasta la implantación de los distintos sistemas. El laboratorio se concibe como un entorno de pruebas y aprendizaje, pero sin perder de vista que cualquier sistema mal configurado puede convertirse en un <strong>riesgo real</strong>, incluso en un entorno doméstico.</p>
+<p>Por este motivo, se adopta un enfoque preventivo basado en el <strong>aislamiento, el control y la observación</strong>, evitando exposiciones innecesarias y priorizando la seguridad frente a la comodidad.</p>
+<hr>
+<h3 id="112-seguridad-de-los-sistemas-y-del-entorno">11.2 Seguridad de los sistemas y del entorno</h3>
+<p>Los sistemas que componen el laboratorio se mantienen, por defecto, <strong>aislados entre sí</strong>, permitiendo la interconexión únicamente cuando es estrictamente necesaria y bajo condiciones controladas.</p>
+<p>Las principales medidas de seguridad adoptadas son:</p>
+<ul>
+<li>Separación física y lógica de los sistemas.</li>
+<li>Uso de discos independientes para evitar contaminación entre entornos.</li>
+<li>Limitación de servicios activos por defecto.</li>
+<li>Monitorización del tráfico mediante un sistema IDS dedicado.</li>
+<li>Evaluación previa de cualquier exposición a redes externas.</li>
+</ul>
+<p>Este planteamiento reduce significativamente el impacto de errores de configuración o fallos de seguridad.</p>
+<hr>
+<h3 id="113-sistemas-de-pruebas-y-riesgo-de-honeypots-involuntarios">11.3 Sistemas de pruebas y riesgo de honeypots involuntarios</h3>
+<p>Se presta especial atención a los <strong>sistemas de pruebas y entornos experimentales</strong>, especialmente aquellos desplegados en el entorno de virtualización. Este tipo de sistemas, si no se gestionan adecuadamente, pueden convertirse de forma involuntaria en <strong>honeypots</strong>, atrayendo tráfico malicioso o intentos de acceso no deseados.</p>
+<p>Este riesgo es especialmente relevante en los siguientes escenarios:</p>
+<ul>
+<li>Máquinas con servicios inseguros o configuraciones débiles.</li>
+<li>Sistemas expuestos temporalmente a redes externas.</li>
+<li>Entornos de pruebas sin mantenimiento o monitorización activa.</li>
+</ul>
+<p>Para mitigar estos riesgos se aplican las siguientes medidas:</p>
+<ul>
+<li>Aislamiento de los entornos de pruebas por defecto.</li>
+<li>Exposición limitada y temporal cuando se realizan prácticas concretas.</li>
+<li>Monitorización activa mediante el sistema IDS.</li>
+<li>Eliminación o restauración de sistemas de pruebas tras su uso.</li>
+</ul>
+<p>El objetivo no es evitar el riesgo por completo, sino <strong>entenderlo, controlarlo y aprender de él</strong> sin comprometer el resto del laboratorio.</p>
+<hr>
+<h3 id="114-seguridad-del-sistema-nas">11.4 Seguridad del sistema NAS</h3>
+<p>El sistema NAS se considera un <strong>punto crítico</strong> dentro del laboratorio, ya que centraliza información y datos potencialmente sensibles.</p>
+<p>Las medidas de seguridad aplicadas incluyen:</p>
+<ul>
+<li>Acceso restringido a usuarios y sistemas concretos.</li>
+<li>Servicios mínimos habilitados.</li>
+<li>Evaluación previa antes de cualquier acceso remoto.</li>
+<li>Separación clara entre almacenamiento y sistemas de pruebas.</li>
+</ul>
+<p>La posibilidad de utilizar el NAS como nube privada se contempla únicamente bajo un análisis previo de riesgos, evitando exposiciones innecesarias que puedan comprometer la integridad de los datos.</p>
+<hr>
+<h3 id="115-legalidad-y-uso-responsable">11.5 Legalidad y uso responsable</h3>
+<p>El proyecto se desarrolla en un <strong>entorno personal y educativo</strong>, con fines formativos y de aprendizaje. No se realizan actividades orientadas a la intrusión en sistemas externos ni a la vulneración de servicios de terceros.</p>
+<p>Se respetan en todo momento los principios básicos de legalidad, uso ético de herramientas de seguridad y responsabilidad técnica.</p>
+<hr>
+<h3 id="116-prevenci%C3%B3n-de-riesgos-t%C3%A9cnicos-y-f%C3%ADsicos">11.6 Prevención de riesgos técnicos y físicos</h3>
+<p>Además de los riesgos lógicos, se tienen en cuenta los <strong>riesgos técnicos y físicos</strong> asociados al uso de hardware y sistemas electrónicos.</p>
+<p>Medidas adoptadas:</p>
+<ul>
+<li>Uso de fuentes de alimentación adecuadas.</li>
+<li>Ventilación correcta del rack.</li>
+<li>Organización del cableado para evitar sobrecargas o desconexiones accidentales.</li>
+<li>Encendido y apagado controlado de los equipos.</li>
+<li>Copias de seguridad para minimizar pérdidas de datos.</li>
+</ul>
+<hr>
+<h3 id="117-consideraciones-finales-sobre-seguridad">11.7 Consideraciones finales sobre seguridad</h3>
+<p>La seguridad en este proyecto no se entiende como un estado final, sino como un <strong>proceso continuo</strong>. Cada ampliación del laboratorio implica una nueva evaluación de riesgos y una revisión de las medidas adoptadas.</p>
+<p>Este enfoque permite adquirir una visión realista de la seguridad informática, entendiendo que incluso los entornos de pruebas pueden tener consecuencias reales si no se gestionan con criterio.</p>
+<hr>
+<br>
+<br>
+<br>
+<p><img src="banners/9-2.png" alt="banner"></p>
+<h2 id="12-plan-de-calidad-y-pruebas">12. Plan de calidad y pruebas</h2>
+<h3 id="121-objetivo-del-plan-de-calidad">12.1 Objetivo del plan de calidad</h3>
+<p>El plan de calidad tiene como objetivo verificar que los distintos componentes del proyecto funcionan de forma <strong>estable, coherente y segura</strong>, cumpliendo con los requisitos definidos en el diseño y la planificación.</p>
+<p>No se busca alcanzar un nivel de certificación formal, sino aplicar <strong>criterios realistas de validación</strong>, acordes al carácter formativo y experimental del laboratorio.</p>
+<hr>
+<h3 id="122-criterios-de-calidad">12.2 Criterios de calidad</h3>
+<p>Para evaluar la calidad del sistema se tienen en cuenta los siguientes criterios:</p>
+<ul>
+<li>Correcto arranque y funcionamiento independiente de cada sistema.</li>
+<li>Aislamiento efectivo entre entornos.</li>
+<li>Estabilidad bajo uso normal y escenarios de prueba.</li>
+<li>Capacidad de recuperación ante errores o fallos.</li>
+<li>Coherencia entre el diseño planteado y la implantación real.</li>
+</ul>
+<p>Un sistema se considera válido cuando cumple su función sin afectar negativamente al resto del laboratorio.</p>
+<hr>
+<h3 id="123-pruebas-sobre-la-m%C3%A1quina-principal">12.3 Pruebas sobre la máquina principal</h3>
+<p>Se realizan pruebas específicas sobre cada uno de los sistemas instalados en la máquina principal.</p>
+<p>Pruebas realizadas:</p>
+<ul>
+<li>Arranque independiente de Windows, Ubuntu y Proxmox.</li>
+<li>Verificación de que cada sistema accede únicamente a sus discos asignados.</li>
+<li>Comprobación de estabilidad tras reinicios y cambios de configuración.</li>
+<li>Validación del rendimiento básico del sistema.</li>
+</ul>
+<p>Estas pruebas garantizan que la separación por discos se mantiene correctamente.</p>
+<hr>
+<h3 id="124-pruebas-del-entorno-de-virtualizaci%C3%B3n">12.4 Pruebas del entorno de virtualización</h3>
+<p>En el entorno Proxmox se realizan pruebas orientadas a validar el aislamiento y la flexibilidad del laboratorio virtual.</p>
+<p>Pruebas realizadas:</p>
+<ul>
+<li>Creación y eliminación de máquinas virtuales.</li>
+<li>Arranque simultáneo de varias VMs.</li>
+<li>Pruebas de red entre máquinas virtuales.</li>
+<li>Verificación de que los errores en una VM no afectan al sistema anfitrión.</li>
+</ul>
+<p>Estas pruebas permiten confirmar que el entorno virtual es adecuado para prácticas de seguridad y experimentación.</p>
+<hr>
+<h3 id="125-pruebas-del-sistema-nas">12.5 Pruebas del sistema NAS</h3>
+<p>El sistema NAS se somete a pruebas centradas en la disponibilidad y la integridad de los datos.</p>
+<p>Pruebas realizadas:</p>
+<ul>
+<li>Acceso desde la máquina principal en escenarios controlados.</li>
+<li>Pruebas de lectura y escritura.</li>
+<li>Verificación de permisos y accesos.</li>
+<li>Simulación de desconexiones y recuperación del servicio.</li>
+</ul>
+<p>El objetivo es asegurar que el almacenamiento es fiable y no introduce riesgos innecesarios.</p>
+<hr>
+<h3 id="126-pruebas-del-sistema-ids">12.6 Pruebas del sistema IDS</h3>
+<p>El sistema IDS se valida mediante escenarios de tráfico controlados.</p>
+<p>Pruebas realizadas:</p>
+<ul>
+<li>Generación de tráfico normal.</li>
+<li>Simulación de comportamientos sospechosos.</li>
+<li>Verificación de alertas y registros.</li>
+<li>Comprobación de que el IDS no interfiere con el funcionamiento del resto del sistema.</li>
+</ul>
+<p>Estas pruebas permiten evaluar la utilidad real del IDS como herramienta de observación y aprendizaje.</p>
+<hr>
+<h3 id="127-pruebas-de-integraci%C3%B3n-y-escenarios-combinados">12.7 Pruebas de integración y escenarios combinados</h3>
+<p>Una vez validados los sistemas de forma individual, se realizan pruebas conjuntas.</p>
+<p>Pruebas realizadas:</p>
+<ul>
+<li>Comunicación entre máquina principal y NAS.</li>
+<li>Monitorización del tráfico por parte del IDS.</li>
+<li>Aislamiento de sistemas tras pruebas de conexión.</li>
+<li>Evaluación del comportamiento ante configuraciones erróneas intencionadas.</li>
+</ul>
+<p>Estas pruebas permiten comprobar que el laboratorio responde correctamente tanto en escenarios estables como en situaciones adversas.</p>
+<hr>
+<h3 id="128-gesti%C3%B3n-de-incidencias-y-mejora-continua">12.8 Gestión de incidencias y mejora continua</h3>
+<p>Durante las pruebas se registran:</p>
+<ul>
+<li>Errores detectados.</li>
+<li>Cambios aplicados para su corrección.</li>
+<li>Decisiones técnicas tomadas.</li>
+</ul>
+<p>Este registro permite mejorar progresivamente el laboratorio y sirve como base para futuras ampliaciones o ajustes.</p>
+<hr>
+<h3 id="129-consideraciones-finales-sobre-calidad">12.9 Consideraciones finales sobre calidad</h3>
+<p>El plan de calidad confirma que el laboratorio cumple con los objetivos propuestos y que su diseño permite detectar, analizar y corregir problemas de forma controlada. La calidad del proyecto no se basa únicamente en el resultado final, sino en la <strong>capacidad de evaluación crítica y mejora continua</strong>.</p>
+<hr>
+<br>
+<br>
+<br>
+<p><img src="banners/10-3.png" alt="banner"></p>
+<h2 id="13-resultados-conclusiones-y-mejoras-futuras">13. Resultados, conclusiones y mejoras futuras</h2>
+<h3 id="131-resultados-obtenidos">13.1 Resultados obtenidos</h3>
+<p>El desarrollo del proyecto ha permitido implantar un laboratorio funcional compuesto por sistemas <strong>claramente separados</strong>, pero con capacidad de interconexión controlada. La arquitectura planteada se ha demostrado válida, permitiendo trabajar en distintos escenarios sin comprometer la estabilidad global del entorno.</p>
+<p>Entre los principales resultados obtenidos destacan:</p>
+<ul>
+<li>Funcionamiento independiente de los tres sistemas principales.</li>
+<li>Correcta separación de entornos mediante discos dedicados.</li>
+<li>Disponibilidad de un entorno de virtualización estable para pruebas.</li>
+<li>Implementación de un sistema NAS operativo y controlado.</li>
+<li>Integración de un sistema IDS como herramienta de monitorización y aprendizaje.</li>
+<li>Capacidad de aislar o interconectar sistemas según las necesidades del momento.</li>
+</ul>
+<p>El laboratorio cumple así con los objetivos técnicos y formativos definidos al inicio del proyecto.</p>
+<hr>
+<h3 id="132-conclusiones">13.2 Conclusiones</h3>
+<p>Este proyecto ha permitido aplicar de forma práctica conocimientos relacionados con sistemas operativos, virtualización, almacenamiento y seguridad informática. Más allá del resultado técnico, uno de los aspectos más relevantes ha sido la <strong>toma de decisiones conscientes</strong>, especialmente en lo referente a seguridad y alcance.</p>
+<p>La experiencia ha puesto de manifiesto que no todas las funcionalidades técnicamente posibles son necesariamente recomendables. Elementos como la exposición de servicios, el uso de sistemas de pruebas o la centralización del almacenamiento requieren un análisis constante de riesgos, incluso en entornos personales.</p>
+<p>El proyecto demuestra que una arquitectura bien pensada, basada en aislamiento y control, permite experimentar de forma segura y realista, evitando errores habituales derivados de configuraciones improvisadas.</p>
+<hr>
+<h3 id="133-mejoras-futuras">13.3 Mejoras futuras</h3>
+<p>El diseño del laboratorio permite numerosas ampliaciones, que se plantean siempre como evoluciones controladas y no como cambios inmediatos.</p>
+<p>Algunas posibles mejoras futuras son:</p>
+<ul>
+<li>Segmentación avanzada de red mediante VLANs.</li>
+<li>Automatización de despliegues y configuraciones.</li>
+<li>Implementación de copias de seguridad más avanzadas.</li>
+<li>Mejora del sistema de monitorización y alertas.</li>
+<li>Evaluación de servicios expuestos al exterior de forma controlada.</li>
+<li>Uso intencionado de honeypots con objetivos formativos específicos.</li>
+</ul>
+<p>Cualquier ampliación futura se realizará manteniendo los principios básicos del proyecto: <strong>aislamiento, seguridad, control y aprendizaje progresivo</strong>.</p>
+<hr>
+<h3 id="134-cierre-final-del-proyecto">13.4 Cierre final del proyecto</h3>
+<p>El laboratorio desarrollado constituye una base sólida para seguir aprendiendo y experimentando en el ámbito de la administración de sistemas y la seguridad informática. Lejos de ser un entorno cerrado, se presenta como una plataforma viva, capaz de evolucionar a medida que aumentan los conocimientos y las necesidades técnicas.</p>
+<p>Este proyecto no se limita a demostrar lo que ya se sabe hacer, sino que refleja una actitud crítica y responsable frente a la tecnología, entendiendo que la seguridad y la estabilidad son tan importantes como la funcionalidad.</p>
+<hr>
+
+</body>
+</html>
